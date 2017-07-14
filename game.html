@@ -8,26 +8,40 @@
 var canvas;
 var canvasContext;
 var ballX=50;
+var ballY=0;
 
 window.onload = function(){  
    console.log("Hello World!");
    canvas = document.getElementById('gameCanvas');
    canvasContext = canvas.getContext("2d");
-   setInterval(drawEverything, 1000);  //1000ms or 500 miliseconds
+   var framesPerSecond = 30; //to calculate frame rate per second
+   setInterval(function(){
+     moveEverything();
+	 drawEverything();
+} , 1000/framesPerSecond);  //1000ms or 1sec or 500 miliseconds
    //drawEverything(); called multiple times
    }
-   
+
+function callBoth(){
+     moveEverything();
+	 drawEverything();
+}   
+function moveEverything() {
+     ballX=ballX+5;
+}   
 function drawEverything () //created a function with camelcase to call all the blocks
 {
-ballX=ballX+10;
-console.log(ballX);
+ //movement code
+//console.log(ballX);
 console.log("called function drawEvertything");
+//drawing code
 canvasContext.fillStyle = 'black';
    canvasContext.fillRect(0,0,canvas.width,canvas.height);//(horizontal postion, vertical position, height, width)
-   canvasContext.fillStyle = 'blue';
-   canvasContext.fillRect(50,200,50,25);
+   canvasContext.fillStyle = 'red';
+   canvasContext.fillRect(0,20,10,100);
    canvasContext.fillStyle = 'yellow';
    canvasContext.fillRect(ballX,100,10,10);//(ballX,ballX,ballX,ballX)
+   
 }
 
 </script>
