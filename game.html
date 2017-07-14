@@ -1,0 +1,35 @@
+<html>
+
+<b>this is bold</b> and <i>this is italic</i>
+<canvas id="gameCanvas" width="800" height="600"></canvas>
+
+<script>
+
+var canvas;
+var canvasContext;
+var ballX=50;
+
+window.onload = function(){  
+   console.log("Hello World!");
+   canvas = document.getElementById('gameCanvas');
+   canvasContext = canvas.getContext("2d");
+   setInterval(drawEverything, 1000);  //1000ms or 500 miliseconds
+   //drawEverything(); called multiple times
+   }
+   
+function drawEverything () //created a function with camelcase to call all the blocks
+{
+ballX=ballX+10;
+console.log(ballX);
+console.log("called function drawEvertything");
+canvasContext.fillStyle = 'black';
+   canvasContext.fillRect(0,0,canvas.width,canvas.height);//(horizontal postion, vertical position, height, width)
+   canvasContext.fillStyle = 'blue';
+   canvasContext.fillRect(50,200,50,25);
+   canvasContext.fillStyle = 'yellow';
+   canvasContext.fillRect(ballX,100,10,10);//(ballX,ballX,ballX,ballX)
+}
+
+</script>
+<p>Console log built-in script log allows us to post messages to error wall </p>
+</html>
