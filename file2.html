@@ -1,0 +1,43 @@
+<html>
+
+<b>this is bold</b> and <i>this is italic</i>
+<canvas id="gameCanvas" width="800" height="600"></canvas>
+
+<script>
+
+var canvas;
+var canvasContext;
+var ballX=50;
+
+window.onload = function(){
+   console.log("Hello World!");
+   canvas = document.getElementById('gameCanvas');
+   canvasContext = canvas.getContext("2d");
+   setInterval(drawEverything, 100);  
+   
+  <!-- canvasContext.fillStyle = 'black';
+  <!-- canvasContext.fillRect(0,0,canvas.width,canvas.height);
+   <!-- canvasContext.fillStyle = 'blue';
+   <!-- canvasContext.fillRect(50,200,50,25);
+   <!-- canvasContext.fillStyle = 'yellow';
+   <!-- canvasContext.fillRect(80,200,50,25); -->
+   <!-- first two from canvas fillrect specifies location from left and top, and remaing two dedicates size >
+  <!--drawEvertything ();
+   <!-- drawEvertything ();
+   }
+   
+function drawEverything ()
+{
+ballX=ballX+10;
+console.log(ballX);
+console.log("called function drawEvertything");
+canvasContext.fillStyle = 'black';
+   canvasContext.fillRect(0,0,canvas.width,canvas.height);
+   canvasContext.fillStyle = 'blue';
+   canvasContext.fillRect(50,200,50,25);
+   canvasContext.fillStyle = 'yellow';
+   canvasContext.fillRect(ballX,200,50,25);
+}
+</script>
+<p>Console log built-in script log allows us to post messages to error wall </p>
+</html>
