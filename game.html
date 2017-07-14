@@ -45,9 +45,18 @@ function drawEverything () //created a function with camelcase to call all the b
    //this is left player paddle
    colorRect(0,210,10,100,'red');
    //nxt line draws the ball
-   colorRect(ballX,100,10,10,'yellow');
+   //colorRect(ballX,100,10,10,'yellow');
+   colorCircle(ballX,100,10,'yellow');
 }
 
+
+function colorCircle(centerX,centerY,radius,drawColor){
+
+	canvasContext.fillStyle = drawColor;
+   canvasContext.beginPath();
+   canvasContext.arc(centerX,centerY,radius,0,Math.PI*2,true);// 
+   canvasContext.fill()
+}
 
 function colorRect(leftX,topY, width,height, drawColor){
 		 canvasContext.fillStyle = drawColor;
