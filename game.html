@@ -8,8 +8,30 @@
 var canvas;
 var canvasContext;
 var ballX=50;
-var ballY=0;
+var ballY=50;
+
 var ballSpeedX =10;
+var ballSpeedY =4;
+
+var paddle1Y =250;
+const PADDLE_HEIGHT =100;
+
+function calculateMousePos(evt){
+
+    var rect =canvas.getBoundingClientRect();
+	var root =document.documentElement;
+	var mouseX= evt.clientX -rect.left - root.scrollLeft;
+	var mouseY =evt.clientY -rect.top -root.scrollTop;
+	return{
+	  x:mouseX,
+	  y:mouseY
+	
+	};
+	
+
+
+}
+
 
 window.onload = function(){  
    console.log("Hello World!");
@@ -29,11 +51,19 @@ function callBoth(){
 }   
 function moveEverything() {
      ballX=ballX+ ballSpeedX;
+	 ballY=ballY+ ballSpeedY;
+	 
 	 if(ballX > canvas.width){
 	 ballSpeedX= -ballSpeedX;
 	 }
-	 else if(ballX<0){
+	 if(ballX<0){
 	 ballSpeedX= -ballSpeedX;//-(-5)=positive ballSpeedX
+	 }
+	 if(ballY > canvas.height){
+	 ballSpeedY= -ballSpeedY;
+	 }
+	 if(ballY<0){
+	 ballSpeedY= -ballSpeedY;//-(-5)=positive ballSpeedX
 	 }
 }   
 function drawEverything () //created a function with camelcase to call all the blocks
@@ -46,7 +76,7 @@ function drawEverything () //created a function with camelcase to call all the b
    colorRect(0,210,10,100,'red');
    //nxt line draws the ball
    //colorRect(ballX,100,10,10,'yellow');
-   colorCircle(ballX,100,10,'yellow');
+   colorCircle(ballX,ballY,10,'yellow');
 }
 
 
@@ -63,6 +93,12 @@ function colorRect(leftX,topY, width,height, drawColor){
          canvasContext.fillRect(leftX,topY,width,height);
 		 
 }
+
+//moving up and down ball
+//define labeled Values for paddle Position and size
+//find the mouse position Relative to Gamer Canvas
+
 </script>
 <p>Console log built-in script log allows us to post messages to error wall </p>
 </html>
+
